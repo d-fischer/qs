@@ -11,6 +11,7 @@
         "url": "https://github.com/sponsors/d-fischer"
     },
     "main": "lib/index.js",
+    "types": "index.d.ts",
     "exports": {
         ".": [
             {
