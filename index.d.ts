@@ -11,51 +11,49 @@
 //                 Jordan Harband <https://github.com/ljharb>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module '@d-fischer/qs' {
-    export = QueryString;
+export = QueryString;
 
-    namespace QueryString {
-        type defaultEncoder = (str: any, defaultEncoder?: any, charset?: string) => string;
-        type defaultDecoder = (str: string, decoder?: any, charset?: string) => string;
+declare namespace QueryString {
+    type defaultEncoder = (str: any, defaultEncoder?: any, charset?: string) => string;
+    type defaultDecoder = (str: string, decoder?: any, charset?: string) => string;
 
-        interface IStringifyOptions {
-            delimiter?: string;
-            strictNullHandling?: boolean;
-            skipNulls?: boolean;
-            encode?: boolean;
-            encoder?: (str: any, defaultEncoder: defaultEncoder, charset: string, type: 'key' | 'value') => string;
-            filter?: Array<string | number> | ((prefix: string, value: any) => any);
-            arrayFormat?: 'indices' | 'brackets' | 'repeat' | 'comma';
-            indices?: boolean;
-            sort?: (a: any, b: any) => number;
-            serializeDate?: (d: Date) => string;
-            format?: 'RFC1738' | 'RFC3986';
-            encodeValuesOnly?: boolean;
-            addQueryPrefix?: boolean;
-            allowDots?: boolean;
-            charset?: 'utf-8' | 'iso-8859-1';
-            charsetSentinel?: boolean;
-        }
-
-        interface IParseOptions {
-            comma?: boolean;
-            delimiter?: string | RegExp;
-            depth?: number | false;
-            decoder?: (str: string, defaultDecoder: defaultDecoder, charset: string, type: 'key' | 'value') => any;
-            arrayLimit?: number;
-            parseArrays?: boolean;
-            allowDots?: boolean;
-            plainObjects?: boolean;
-            allowPrototypes?: boolean;
-            parameterLimit?: number;
-            strictNullHandling?: boolean;
-            ignoreQueryPrefix?: boolean;
-            charset?: 'utf-8' | 'iso-8859-1';
-            charsetSentinel?: boolean;
-            interpretNumericEntities?: boolean;
-        }
-
-        function stringify(obj: any, options?: IStringifyOptions): string;
-        function parse(str: string, options?: IParseOptions): any;
+    interface IStringifyOptions {
+        delimiter?: string;
+        strictNullHandling?: boolean;
+        skipNulls?: boolean;
+        encode?: boolean;
+        encoder?: (str: any, defaultEncoder: defaultEncoder, charset: string, type: 'key' | 'value') => string;
+        filter?: Array<string | number> | ((prefix: string, value: any) => any);
+        arrayFormat?: 'indices' | 'brackets' | 'repeat' | 'comma';
+        indices?: boolean;
+        sort?: (a: any, b: any) => number;
+        serializeDate?: (d: Date) => string;
+        format?: 'RFC1738' | 'RFC3986';
+        encodeValuesOnly?: boolean;
+        addQueryPrefix?: boolean;
+        allowDots?: boolean;
+        charset?: 'utf-8' | 'iso-8859-1';
+        charsetSentinel?: boolean;
     }
+
+    interface IParseOptions {
+        comma?: boolean;
+        delimiter?: string | RegExp;
+        depth?: number | false;
+        decoder?: (str: string, defaultDecoder: defaultDecoder, charset: string, type: 'key' | 'value') => any;
+        arrayLimit?: number;
+        parseArrays?: boolean;
+        allowDots?: boolean;
+        plainObjects?: boolean;
+        allowPrototypes?: boolean;
+        parameterLimit?: number;
+        strictNullHandling?: boolean;
+        ignoreQueryPrefix?: boolean;
+        charset?: 'utf-8' | 'iso-8859-1';
+        charsetSentinel?: boolean;
+        interpretNumericEntities?: boolean;
+    }
+
+    function stringify(obj: any, options?: IStringifyOptions): string;
+    function parse(str: string, options?: IParseOptions): any;
 }
